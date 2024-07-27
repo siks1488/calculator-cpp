@@ -1,7 +1,7 @@
 #include <iostream>
 
 int main(){
-    std::string x;
+    char x;
     int a;
     int b;
     int result;
@@ -15,29 +15,38 @@ int main(){
     std::cout << "Enter the second number: ";
     std::cin >> b;
 
-    if(x == "+"){
+    switch(x){
+        case '+':
         result = a + b;
         std::cout << "The result is: " << result << std::endl;
-    }
-    else if (x == "-"){
+        break;
+        
+        case '-':
         result = a - b;
         std::cout << "The result is: " << result << std::endl;
-    }
-    else if (x == "*"){
+        break;
+
+        case '*':
         result = a * b;
         std::cout << "The result is: " << result << std::endl;
-    }
-    else if (x == "/"){
-        if(b != 0 ){
+        break;
+        
+        case '/':
+        if (b == 0){
+            std::cout << "ERROR: Division by zero is not allowed." << std::endl;
+        }
+        else{
             result = a / b;
             std::cout << "The result is: " << result << std::endl;
-        }else{
-            std::cout << "ERROR: Division by zero is not allowed.";
         }
+        break;
+        
+        default:
+        std::cout << "ERROR: Invalid operation." << std::endl;
+        break;
     }
-    else{
-        std::cout << "ERROR";
-    }
+
+
 
     return 0;
 }
